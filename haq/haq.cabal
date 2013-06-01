@@ -1,0 +1,12 @@
+Name:                haq
+Version:             0.0
+Description:         Super cool mega lambdas
+License:             GPL
+License-file:        LICENSE
+Author:              Don Stewart
+Maintainer:          dons@cse.unsw.edu.au
+Build-Type:          Simple
+Cabal-Version:       >=1.2
+Executable haq
+  Main-is:           Haq.hs
+  Build-Depends:     base >= 3 && < 5
