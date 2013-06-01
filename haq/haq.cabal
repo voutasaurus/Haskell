@@ -2,7 +2,7 @@ Name:                haq
 Version:             0.0
 Description:         Super cool mega lambdas
 License:             GPL
-License-file:        LICENSE
+License-file:        LICENSE.txt
 Author:              Don Stewart
 Maintainer:          dons@cse.unsw.edu.au
 Build-Type:          Simple
