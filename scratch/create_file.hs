@@ -8,7 +8,6 @@ main = do
         else addLineTo filename
 			
 			
-			
 addLineTo filename = do  
 			putStrLn "Please the line you wish to append: (leave blank to terminate)"
 			line <- getLine  
