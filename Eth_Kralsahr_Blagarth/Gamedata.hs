@@ -31,7 +31,40 @@ data Door = Door { _objectName :: String
 --				 , _objectAffordances :: [Action]
 --				 , _objectSecretActs :: [Action]
 				 } deriving (Show) 
-				 
+
+
+----
+-- Verbs and Actions
+----
+
+type ID = Int
+
+type MovementVerb = Climb | JumpOver | SneakPast 		-- Move to a different location via a fixture/NPC
+
+type ActivateVerb = Use | Activate | Press | Drop		-- Actor no target
+
+type ActOnVerb = UseOn | ThrowAt | PlaceOn | PlaceIn 
+
+type Effect = (ID, Object -> Object)
+
+data ActOn = ActOn { _actorID :: ID 		-- The Identifier for the actor object
+					, _targetID :: ID 		-- The Identifier for the target object
+					, _actorEffect :: Object -> Object		-- The resulting effect on the actor object
+					, _targetEffect :: Object -> Object		-- The resulting effect on the target object
+					, _sideEffects :: [effect]  	-- Side effects (effects on other objects)
+					}
+
+-- ActWith could also be "Actor ActOn self"
+data ActWith = ActWith { _actorID :: ID 	-- The Identifier for the actor object
+						, _actorEffect :: Object -> Object		-- The resulting effect on the actor object
+						, _sideEffects :: [Effect]  	-- Side effects (effects on other objects)
+						}
+
+type Actor = Object
+type Target = Object
+type ActOnClause = Actor ActOnVerb Target [Effect]
+
+performActOn :: ActOnClause -> ActOn
 ----------------------------------------
 -- Location Navigation By List Zipper --
 ----------------------------------------
